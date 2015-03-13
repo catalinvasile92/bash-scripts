@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+    >&2 echo -e	"Usage:\n" \
+	    	"	$0 <command> <dir>\n";
+    exit;
+fi
+
+cmd="$1";
+workdir="$2";
+
+find "$workdir" -type f -exec "$cmd" {} \;
